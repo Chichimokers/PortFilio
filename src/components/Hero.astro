@@ -1,25 +1,25 @@
-<section class="mb-20">
-    <div class="flex justify-center mb-8">
-        <div class="relative inline-block">
-            <!-- Marco externo redondo con efecto -->
-            <div class="absolute inset-0 rounded-full bg-green-500 blur opacity-50 animate-pulse"></div>
-            
-            <!-- Imagen con borde circular -->
-            <img
-              src="/images/profile.jpg"
-              alt="Ernesto Rodríguez"
-              class="w-40 h-40 rounded-full border-4 border-green-500 p-1 object-cover relative z-10"
-            />
-          </div>
-          
+<section class="mb-20 flex flex-col items-center">
+    <!-- Avatar escalable -->
+    <div class="relative mb-6" style="width: 200px; height: 200px;">
+      <!-- Glow sutil -->
+      <div class="absolute inset-0 rounded-full bg-green-500 blur-sm opacity-25 animate-pulse"></div>
+      <img
+        src="/images/profile.jpg"
+        alt="Ernesto Rodríguez"
+        style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #00ff88; object-fit: cover; display: block; z-index: 10;"
+      />
     </div>
-    <h1 class="text-5xl mb-4 retro-title" style="font-family: 'VT323', monospace; letter-spacing: 3px;">
+  
+    <!-- Título y subtítulo -->
+    <h1 class="text-4xl mb-3 retro-title" style="font-family: 'VT323', monospace; letter-spacing: 2px; text-shadow: 0 0 8px #00ff88;">
       ERNESTO RODRÍGUEZ
     </h1>
-    <h2 class="text-2xl mb-6 retro-subtitle" style="font-family: 'Share Tech Mono', monospace;">
+    <h2 class="text-xl mb-5 retro-subtitle" style="font-family: 'Share Tech Mono', monospace; text-shadow: 0 0 4px #00ff88;">
       FULL STACK DEVELOPER
     </h2>
-    <p class="text-lg max-w-2xl mx-auto mb-8">
+  
+    <!-- Descripción -->
+    <p class="text-base max-w-xl mx-auto mb-6 text-center text-green-300">
       Ingeniero en Ciencias Informáticas | UCI, Cuba<br>
       Especializado en desarrollo full-stack, automatización y soluciones tecnológicas innovadoras.
     </p>

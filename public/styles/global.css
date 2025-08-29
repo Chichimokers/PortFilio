@@ -46,3 +46,22 @@ pre, code {
   font-family: 'Share Tech Mono', monospace;
   color: #00ff88;
 }
+/* Efecto de glow para el avatar */
+.avatar-glow {
+  box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+  transition: transform 0.3s ease;
+}
+
+.avatar-glow:hover {
+  transform: scale(1.02);
+}
+
+/* Animación de pulso para el fondo */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
