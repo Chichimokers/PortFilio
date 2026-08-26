@@ -31,5 +31,124 @@ import Contact from '../components/Contact.astro';
     <Projects />
     <Contact />
   </div>
+
+  <script is:inline>
+    const translations = {
+      es: {
+        nav_about: '_sobre_mi',
+        nav_skills: '_habilidades',
+        nav_projects: '_proyectos',
+        nav_contact: '_contacto',
+        hero_role: 'Ingeniero en Ciencias Informaticas',
+        hero_desc: 'Full Stack Developer apasionado por crear soluciones tecnologicas innovadoras. De La Habana, Cuba para el mundo.',
+        hero_cta_projects: 'VER PROYECTOS',
+        hero_cta_contact: 'CONTACTAR',
+        about_title: '// Sobre Mi',
+        about_text: 'Ingeniero en Ciencias Informaticas (UCI) con un enfoque proactivo y capacidad para aprender rapidamente nuevas tecnologias. Apasionado por el desarrollo de software y las soluciones tecnologicas, con experiencia en el diseno, desarrollo e implementacion de proyectos tanto individuales como colaborativos.',
+        about_location: 'La Habana, Cuba',
+        about_fullstack: 'FULL STACK',
+        about_fullstack_desc: 'Frontend + Backend + APIs',
+        about_automation: 'AUTOMATIZACION',
+        about_automation_desc: 'Bots, scripts y procesos',
+        about_collab: 'COLABORACION',
+        about_collab_desc: 'Proyectos internacionales',
+        skills_title: '// Habilidades',
+        projects_title: '// Proyectos',
+        project_visit: 'VISITAR',
+        project_github: 'GITHUB',
+        contact_title: '// Contacto',
+        contact_desc: 'Disponible para proyectos, colaboraciones y oportunidades. No dudes en contactarme.',
+        contact_email_label: 'EMAIL',
+        contact_phone_label: 'TELEFONO',
+        contact_github_label: 'GITHUB',
+        contact_twitter_label: 'TWITTER / X',
+        footer: '&copy; 2026 Ernesto Rodriguez Castillo. Built with Astro.',
+        p_esakishop: 'Plataforma e-commerce con gestion de productos, pasarela de pagos y administracion por roles. Operativa en esaki-jrr.com.',
+        p_soky: 'Plataforma de recargas moviles con interfaz moderna y procesamiento de pagos integrado.',
+        p_smsrenta: 'Servicio de numeros de EE.UU. para recibir SMS verificaciones. Sistema de alquiler de numeros temporales.',
+        p_remesas: 'Plataforma para cambiar Pesos Mexicanos a USDT y Peso Cubano (CUP) al instante. Transferencias rapidas y seguras.',
+        p_market: 'Plataforma de anuncios clasificados con busqueda avanzada, destacados y validacion por email.',
+        p_pediatria: 'Bot para cargar y gestionar publicaciones cientificas en revistas medicas cubanas. Facilita acceso rapido via links directos.',
+        p_auze: 'Plataforma inmobiliaria con inteligencia artificial para gestion de propiedades, clientes y transacciones.',
+        p_goby: 'Plataforma web para gestion de policizas de seguro, cotizaciones y reclamaciones. Backend Django + Frontend Razor/React.',
+        p_bf3: 'Sistema anti-cheat para servidores de Battlefield 3. Detecta modificaciones en tiempo real y reporta eventos sospechosos.',
+        p_telar: 'App movil para distribucion y venta de telas, con enfoque en usabilidad y experiencia mobile.',
+        p_smarthub: 'Plataforma multi-tenant para gestion de inventarios con chat automatizado impulsado por IA. Disenada para escalabilidad.',
+      },
+      en: {
+        nav_about: '_about',
+        nav_skills: '_skills',
+        nav_projects: '_projects',
+        nav_contact: '_contact',
+        hero_role: 'Computer Science Engineer',
+        hero_desc: 'Full Stack Developer passionate about creating innovative tech solutions. From Havana, Cuba to the world.',
+        hero_cta_projects: 'VIEW PROJECTS',
+        hero_cta_contact: 'CONTACT',
+        about_title: '// About Me',
+        about_text: 'Computer Science Engineer (UCI) with a proactive approach and ability to quickly learn new technologies. Passionate about software development and technological solutions, with experience in designing, developing, and implementing both individual and collaborative projects.',
+        about_location: 'Havana, Cuba',
+        about_fullstack: 'FULL STACK',
+        about_fullstack_desc: 'Frontend + Backend + APIs',
+        about_automation: 'AUTOMATION',
+        about_automation_desc: 'Bots, scripts & processes',
+        about_collab: 'COLLABORATION',
+        about_collab_desc: 'International projects',
+        skills_title: '// Skills',
+        projects_title: '// Projects',
+        project_visit: 'VISIT',
+        project_github: 'GITHUB',
+        contact_title: '// Contact',
+        contact_desc: 'Available for projects, collaborations and opportunities. Feel free to reach out.',
+        contact_email_label: 'EMAIL',
+        contact_phone_label: 'PHONE',
+        contact_github_label: 'GITHUB',
+        contact_twitter_label: 'TWITTER / X',
+        footer: '&copy; 2026 Ernesto Rodriguez Castillo. Built with Astro.',
+        p_esakishop: 'E-commerce platform with product management, payment gateway, and role-based administration. Live at esaki-jrr.com.',
+        p_soky: 'Mobile recharge platform with modern interface and integrated payment processing.',
+        p_smsrenta: 'US phone numbers service for receiving SMS verifications. Temporary number rental system.',
+        p_remesas: 'Platform to exchange Mexican Pesos to USDT and Cuban Peso (CUP) instantly. Fast and secure transfers.',
+        p_market: 'Classifieds platform with advanced search, featured listings, and email validation.',
+        p_pediatria: 'Bot for uploading and managing scientific publications in Cuban medical journals. Quick access via direct links.',
+        p_auze: 'Real estate platform with AI for property, client, and transaction management.',
+        p_goby: 'Web platform for insurance policy management, quotes, and claims. Django backend + Razor/React frontend.',
+        p_bf3: 'Anti-cheat system for Battlefield 3 servers. Detects real-time modifications and reports suspicious events.',
+        p_telar: 'Mobile app for fabric distribution and sales, focused on usability and mobile experience.',
+        p_smarthub: 'Multi-tenant platform for inventory management with AI-powered automated chat. Designed for scalability.',
+      },
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          if (el.tagName === 'INPUT') {
+            el.placeholder = translations[lang][key];
+          } else {
+            el.innerHTML = translations[lang][key];
+          }
+        }
+      });
+      const btn = document.getElementById('lang-toggle');
+      if (btn) {
+        btn.textContent = lang === 'es' ? 'EN' : 'ES';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('lang') || 'es';
+      setLang(saved);
+
+      const btn = document.getElementById('lang-toggle');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const current = document.documentElement.lang || 'es';
+          setLang(current === 'es' ? 'en' : 'es');
+        });
+      }
+    });
+  </script>
 </body>
 </html>

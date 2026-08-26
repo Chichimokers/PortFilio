@@ -1,14 +1,13 @@
 <section id="projects" style="padding: 4rem 0;">
-  <h2 class="section-title">// Proyectos</h2>
+  <h2 class="section-title" data-i18n="projects_title">// Proyectos</h2>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
     {
       [
         {
           title: 'EsakiShop',
-          description: 'Plataforma e-commerce con gestion de productos, pasarela de pagos y administracion por roles. Operativa en esaki-jrr.com.',
+          descKey: 'p_esakishop',
           link: 'https://esaki-jrr.com',
-          linkLabel: 'VISITAR',
           tech: ['Next.js', 'NestJS', 'MongoDB'],
           image: null,
           icon: 'fa-solid fa-shop',
@@ -16,9 +15,8 @@
         },
         {
           title: 'Soky Recargas',
-          description: 'Plataforma de recargas moviles con interfaz moderna y procesamiento de pagos integrado.',
+          descKey: 'p_soky',
           link: null,
-          linkLabel: null,
           tech: ['Web Platform', 'Payments'],
           image: '/images/soky-recargas.png',
           icon: 'fa-solid fa-mobile-retro',
@@ -26,9 +24,8 @@
         },
         {
           title: 'SMSRenta',
-          description: 'Servicio de numeros de EE.UU. para recibir SMS verificaciones. Sistema de alquiler de numeros temporales.',
+          descKey: 'p_smsrenta',
           link: null,
-          linkLabel: null,
           tech: ['SMS API', 'Telecom'],
           image: '/images/smsrenta.png',
           icon: 'fa-solid fa-comment-sms',
@@ -36,9 +33,8 @@
         },
         {
           title: 'Remesas MX',
-          description: 'Plataforma para cambiar Pesos Mexicanos a USDT y Peso Cubano (CUP) al instante. Transferencias rapidas y seguras.',
+          descKey: 'p_remesas',
           link: null,
-          linkLabel: null,
           tech: ['Fintech', 'Crypto', 'Exchange'],
           image: '/images/remesas-mx.png',
           icon: 'fa-solid fa-money-bill-transfer',
@@ -46,9 +42,8 @@
         },
         {
           title: 'MarketUci',
-          description: 'Plataforma de anuncios clasificados con busqueda avanzada, destacados y validacion por email.',
+          descKey: 'p_market',
           link: 'https://github.com/Chichimokers/MarketUci',
-          linkLabel: 'GITHUB',
           tech: ['Django', 'HTML/CSS', 'JavaScript'],
           image: null,
           icon: 'fa-solid fa-bullhorn',
@@ -56,9 +51,8 @@
         },
         {
           title: 'Pediatria Bot',
-          description: 'Bot para cargar y gestionar publicaciones cientificas en revistas medicas cubanas. Facilita acceso rapido via links directos.',
+          descKey: 'p_pediatria',
           link: 'https://github.com/Chichimokers/PediatriaBot',
-          linkLabel: 'GITHUB',
           tech: ['Python', 'Automatizacion'],
           image: null,
           icon: 'fa-solid fa-robot',
@@ -66,9 +60,8 @@
         },
         {
           title: 'Auze Imoveis HAI',
-          description: 'Plataforma inmobiliaria con inteligencia artificial para gestion de propiedades, clientes y transacciones.',
+          descKey: 'p_auze',
           link: null,
-          linkLabel: null,
           tech: ['React', 'Django', 'AI', 'Multi-tenant'],
           image: '/images/auze-imoveis.png',
           icon: 'fa-solid fa-building',
@@ -76,9 +69,8 @@
         },
         {
           title: 'Go By (CyvyOnline)',
-          description: 'Plataforma web para gestion de policizas de seguro, cotizaciones y reclamaciones. Backend Django + Frontend Razor/React.',
+          descKey: 'p_goby',
           link: null,
-          linkLabel: null,
           tech: ['Django', 'Razor Pages', 'React'],
           image: '/images/go-by.png',
           icon: 'fa-solid fa-shield-halved',
@@ -86,9 +78,8 @@
         },
         {
           title: 'BF3 AntiHook',
-          description: 'Sistema anti-cheat para servidores de Battlefield 3. Detecta modificaciones en tiempo real y reporta eventos sospechosos.',
+          descKey: 'p_bf3',
           link: null,
-          linkLabel: null,
           tech: ['C#', '.NET', 'Security'],
           image: null,
           icon: 'fa-solid fa-user-secret',
@@ -96,9 +87,8 @@
         },
         {
           title: 'Telar APP',
-          description: 'App movil para distribucion y venta de telas, con enfoque en usabilidad y experiencia mobile.',
+          descKey: 'p_telar',
           link: null,
-          linkLabel: null,
           tech: ['Flutter', 'Mobile'],
           image: null,
           icon: 'fa-solid fa-shirt',
@@ -106,9 +96,8 @@
         },
         {
           title: 'Smarthub.bot',
-          description: 'Plataforma multi-tenant para gestion de inventarios con chat automatizado impulsado por IA. disenada para escalabilidad.',
+          descKey: 'p_smarthub',
           link: null,
-          linkLabel: null,
           tech: ['Django', 'AI', 'Multi-tenant'],
           image: null,
           icon: 'fa-solid fa-brain',
@@ -131,7 +120,7 @@
             )}
           </div>
 
-          <p style="font-size: 0.9rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; flex-grow: 1;">{project.description}</p>
+          <p style="font-size: 0.9rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; flex-grow: 1;" data-i18n={project.descKey}></p>
 
           <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem;">
             {project.tech.map(t => (
@@ -141,7 +130,7 @@
 
           {project.link && (
             <a href={project.link} target="_blank" rel="noopener noreferrer" class="cta-btn" style="font-size: 0.65rem; padding: 10px 20px; align-self: flex-start;">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> {project.linkLabel || 'VISITAR'}
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="project_visit">VISITAR</span>
             </a>
           )}
         </div>
