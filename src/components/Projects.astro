@@ -1,62 +1,151 @@
-<section class="mb-20">
-    <h2 class="text-3xl mb-10 retro-title" style="font-family: 'VT323', monospace; letter-spacing: 2px;">
-      [ PROYECTOS ]
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {[
+<section id="projects" style="padding: 4rem 0;">
+  <h2 class="section-title">// Proyectos</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+    {
+      [
         {
           title: 'EsakiShop',
-          description: 'Tienda online funcional con Next.js + NestJS, utilizada por clientes reales.',
+          description: 'Plataforma e-commerce con gestion de productos, pasarela de pagos y administracion por roles. Operativa en esaki-jrr.com.',
           link: 'https://esaki-jrr.com',
+          linkLabel: 'VISITAR',
           tech: ['Next.js', 'NestJS', 'MongoDB'],
-          icon: 'fa-solid fa-shop'
+          image: null,
+          icon: 'fa-solid fa-shop',
+          private: false,
+        },
+        {
+          title: 'Soky Recargas',
+          description: 'Plataforma de recargas moviles con interfaz moderna y procesamiento de pagos integrado.',
+          link: null,
+          linkLabel: null,
+          tech: ['Web Platform', 'Payments'],
+          image: '/images/soky-recargas.png',
+          icon: 'fa-solid fa-mobile-retro',
+          private: false,
+        },
+        {
+          title: 'SMSRenta',
+          description: 'Servicio de numeros de EE.UU. para recibir SMS verificaciones. Sistema de alquiler de numeros temporales.',
+          link: null,
+          linkLabel: null,
+          tech: ['SMS API', 'Telecom'],
+          image: '/images/smsrenta.png',
+          icon: 'fa-solid fa-comment-sms',
+          private: false,
+        },
+        {
+          title: 'Remesas MX',
+          description: 'Plataforma para cambiar Pesos Mexicanos a USDT y Peso Cubano (CUP) al instante. Transferencias rapidas y seguras.',
+          link: null,
+          linkLabel: null,
+          tech: ['Fintech', 'Crypto', 'Exchange'],
+          image: '/images/remesas-mx.png',
+          icon: 'fa-solid fa-money-bill-transfer',
+          private: false,
         },
         {
           title: 'MarketUci',
-          description: 'Plataforma de anuncios desarrollada con Django y HTML/CSS/JS.',
-          link: 'https://marketuci.onrender.com',
-          tech: ['Django', 'HTML/CSS/JS'],
-          icon: 'fa-solid fa-bullhorn'
-        },
-        {
-          title: 'BF3 AntiHook',
-          description: 'Sistema anti-trampas para servidores de Battlefield 3.',
-          link: 'http://cubagamer.cloudns.be:8080/',
-          tech: ['C#', 'Python'],
-          icon: 'fa-solid fa-shield-halved'
+          description: 'Plataforma de anuncios clasificados con busqueda avanzada, destacados y validacion por email.',
+          link: 'https://github.com/Chichimokers/MarketUci',
+          linkLabel: 'GITHUB',
+          tech: ['Django', 'HTML/CSS', 'JavaScript'],
+          image: null,
+          icon: 'fa-solid fa-bullhorn',
+          private: false,
         },
         {
           title: 'Pediatria Bot',
-          description: 'Bot automatizado para cargar archivos a plataformas de revistas médicas en Cuba.',
+          description: 'Bot para cargar y gestionar publicaciones cientificas en revistas medicas cubanas. Facilita acceso rapido via links directos.',
           link: 'https://github.com/Chichimokers/PediatriaBot',
-          tech: ['Python', 'Automatización'],
-          icon: 'fa-solid fa-robot'
+          linkLabel: 'GITHUB',
+          tech: ['Python', 'Automatizacion'],
+          image: null,
+          icon: 'fa-solid fa-robot',
+          private: false,
+        },
+        {
+          title: 'Auze Imoveis HAI',
+          description: 'Plataforma inmobiliaria con inteligencia artificial para gestion de propiedades, clientes y transacciones.',
+          link: null,
+          linkLabel: null,
+          tech: ['React', 'Django', 'AI', 'Multi-tenant'],
+          image: '/images/auze-imoveis.png',
+          icon: 'fa-solid fa-building',
+          private: false,
+        },
+        {
+          title: 'Go By (CyvyOnline)',
+          description: 'Plataforma web para gestion de policizas de seguro, cotizaciones y reclamaciones. Backend Django + Frontend Razor/React.',
+          link: null,
+          linkLabel: null,
+          tech: ['Django', 'Razor Pages', 'React'],
+          image: '/images/go-by.png',
+          icon: 'fa-solid fa-shield-halved',
+          private: false,
+        },
+        {
+          title: 'BF3 AntiHook',
+          description: 'Sistema anti-cheat para servidores de Battlefield 3. Detecta modificaciones en tiempo real y reporta eventos sospechosos.',
+          link: null,
+          linkLabel: null,
+          tech: ['C#', '.NET', 'Security'],
+          image: null,
+          icon: 'fa-solid fa-user-secret',
+          private: true,
+        },
+        {
+          title: 'Telar APP',
+          description: 'App movil para distribucion y venta de telas, con enfoque en usabilidad y experiencia mobile.',
+          link: null,
+          linkLabel: null,
+          tech: ['Flutter', 'Mobile'],
+          image: null,
+          icon: 'fa-solid fa-shirt',
+          private: false,
+        },
+        {
+          title: 'Smarthub.bot',
+          description: 'Plataforma multi-tenant para gestion de inventarios con chat automatizado impulsado por IA. disenada para escalabilidad.',
+          link: null,
+          linkLabel: null,
+          tech: ['Django', 'AI', 'Multi-tenant'],
+          image: null,
+          icon: 'fa-solid fa-brain',
+          private: false,
         },
       ].map(project => (
-        <div class="p-6 bg-black border border-green-500 rounded-lg hover:border-green-300 transition-all">
-          <div class="flex justify-center mb-4">
-            <i class={`${project.icon} text-3xl text-green-400`}></i>
+        <div class="neon-card" style="display: flex; flex-direction: column;">
+          {project.image ? (
+            <img src={project.image} alt={project.title} class="project-image" style="margin-bottom: 1rem;" />
+          ) : (
+            <div style="height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(255, 0, 170, 0.05)); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <i class={project.icon} style="font-size: 2.5rem; background: linear-gradient(135deg, var(--cyan), var(--magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; opacity: 0.6;"></i>
+            </div>
+          )}
+
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <h3 style="font-family: 'Orbitron', sans-serif; font-weight: 600; font-size: 1rem; color: var(--text-bright); letter-spacing: 1px;">{project.title}</h3>
+            {project.private && (
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; background: rgba(255, 0, 170, 0.1); color: var(--magenta); border: 1px solid rgba(255, 0, 170, 0.2);">PRIVATE</span>
+            )}
           </div>
-          <h3 class="text-xl mb-3 retro-subtitle" style="font-family: 'Share Tech Mono', monospace;">
-            {project.title}
-          </h3>
-          <p class="mb-4 text-sm text-green-300">{project.description}</p>
-          <div class="flex flex-wrap justify-center gap-2 mb-6">
+
+          <p style="font-size: 0.9rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; flex-grow: 1;">{project.description}</p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem;">
             {project.tech.map(t => (
-              <span class="px-3 py-1 bg-green-900 text-green-300 rounded-full text-xs border border-green-500">
-                {t}
-              </span>
+              <span class="tech-tag">{t}</span>
             ))}
           </div>
-          <a
-            href={project.link}
-            class="inline-flex items-center gap-2 px-4 py-2 bg-green-900 text-green-300 rounded-lg hover:bg-green-800 transition-all border border-green-500"
-          >
-            <i class="fa-solid fa-link"></i>
-            VISITAR
-          </a>
+
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="cta-btn" style="font-size: 0.65rem; padding: 10px 20px; align-self: flex-start;">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> {project.linkLabel || 'VISITAR'}
+            </a>
+          )}
         </div>
-      ))}
-    </div>
-  </section>
-  
+      ))
+    }
+  </div>
+</section>

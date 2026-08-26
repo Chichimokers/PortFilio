@@ -1,27 +1,28 @@
-<section class="mb-20 flex flex-col items-center">
-    <!-- Avatar escalable -->
-    <div class="relative mb-6" style="width: 200px; height: 200px;">
-      <!-- Glow sutil -->
-      <div class="absolute inset-0 rounded-full bg-green-500 blur-sm opacity-25 animate-pulse"></div>
-      <img
-        src="/images/profile.jpg"
-        alt="Ernesto Rodríguez"
-        style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #00ff88; object-fit: cover; display: block; z-index: 10;"
-      />
+<section style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 5rem 0 4rem; position: relative;">
+  <div style="position: relative; margin-bottom: 2rem;">
+    <div style="width: 160px; height: 160px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(0, 240, 255, 0.4); position: relative; animation: pulseGlow 3s ease-in-out infinite;">
+      <img src="/images/profile.jpg" alt="Ernesto Rodriguez Castillo" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
     </div>
-  
-    <!-- Título y subtítulo -->
-    <h1 class="text-4xl mb-3 retro-title" style="font-family: 'VT323', monospace; letter-spacing: 2px; text-shadow: 0 0 8px #00ff88;">
-      ERNESTO RODRÍGUEZ
-    </h1>
-    <h2 class="text-xl mb-5 retro-subtitle" style="font-family: 'Share Tech Mono', monospace; text-shadow: 0 0 4px #00ff88;">
-      FULL STACK DEVELOPER
-    </h2>
-  
-    <!-- Descripción -->
-    <p class="text-base max-w-xl mx-auto mb-6 text-center text-green-300">
-      Ingeniero en Ciencias Informáticas | UCI, Cuba<br>
-      Especializado en desarrollo full-stack, automatización y soluciones tecnológicas innovadoras.
-    </p>
-  </section>
-  
+    <div style="position: absolute; bottom: 8px; right: 8px; width: 16px; height: 16px; background: #00ff88; border-radius: 50%; border: 3px solid var(--dark-bg);"></div>
+  </div>
+
+  <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--cyan); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem;">Computer Science Engineer</p>
+
+  <h1 style="font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; color: var(--text-bright);">
+    Ernesto<br/>
+    <span style="background: linear-gradient(135deg, #00f0ff, #7b2ff7, #ff00aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rodriguez</span>
+  </h1>
+
+  <p style="font-size: 1.1rem; color: var(--text); max-width: 520px; margin: 0 auto 2rem; line-height: 1.8;">
+    Full Stack Developer apasionado por crear soluciones tecnologicas innovadoras. De La Habana, Cuba para el mundo.
+  </p>
+
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+    <a href="#projects" class="cta-btn">
+      <i class="fa-solid fa-arrow-down"></i> VER PROYECTOS
+    </a>
+    <a href="#contact" class="cta-btn cta-btn-magenta">
+      <i class="fa-solid fa-paper-plane"></i> CONTACTAR
+    </a>
+  </div>
+</section>
